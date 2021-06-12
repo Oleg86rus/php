@@ -1,17 +1,17 @@
 <?php
 
-    $operand1 = (int)$_POST['operand1'];
-    $operand2 = (int)$_POST['operand2'];
+    $arg1 = (int)$_POST['arg1'];
+    $arg2 = (int)$_POST['arg2'];
 
 	
-	$summ=$operand1+$operand2;
+	$summ=$arg1+$arg2;
 	
-	$str="{$operand1} + {$operand2} ={$summ}";
+	$str="{$arg1} + {$arg2} ={$summ}";
 	
 	$file=fopen("data.txt", 'w');
 	fputs($file, $str);
 	fclose($file);
 	
 	
-	$response['result'] = $operand1+$operand2;
+	$response['result'] = $arg1+$arg2;
 	echo json_encode($response);

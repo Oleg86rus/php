@@ -9,16 +9,16 @@
 <script>
 $(document).ready(function(){
     $(".action").on('click', function(){
-        var operand1 = $("#val1").val()
-        var operand2 = $("#val2").val()
+        var arg1 = $("#val1").val()
+        var arg2 = $("#val2").val()
 
         $.ajax({
             url: "add.php",
             type: "POST",
 			dataType : "json",
             data:{
-                operand1: operand1,
-                operand2: operand2
+                arg1: arg1,
+                arg2: arg2
             },
             error: function() {alert("Что-то пошло не так...");},
             success: function(answer){
