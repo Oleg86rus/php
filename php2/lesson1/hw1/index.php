@@ -30,7 +30,7 @@ class Warrior extends Human {
 
     public function __construct($name = '', $age = 0, $health = 100, $attack = 0)
     {
-        parent::__construct($name, $age, $attack);
+        parent::__construct($name, $age, $health, $attack);
         $this->attack = $attack;
     }
 
@@ -42,7 +42,7 @@ class Warrior extends Human {
     }
 
     public function attack(Human $target) {
-        $target->health += $this->attack;
+        $target->health -= $this->attack;
         echo "Воин наносит урон {$target->name} на {$this->attack} урона.<br>";
     }
 }
@@ -53,7 +53,7 @@ class Hiller extends Human {
 
     public function __construct($name = '', $age = 0, $health = 100, $heal = 0)
     {
-        parent::__construct($name, $age, $heal);
+        parent::__construct($name, $age, $health, $heal);
         $this->heal = $heal;
     }
 
@@ -73,11 +73,12 @@ class Hiller extends Human {
 $human1 = new Human("Грут", 233, 100);
 $human1->sayName();
 
-$warrior1 = new Warrior("Конан", 22, 100, 20);
+$warrior1 = new Warrior("Конан", 22, 100, 80);
 $warrior1->sayName();
 $warrior1->attack($human1);
-$hiller->heal($human1);
+$hiller = new Hiller("Ауриэль", 25, 600, 70);
 $hiller->sayName();
+$hiller->heal($human1);
 
 
 
